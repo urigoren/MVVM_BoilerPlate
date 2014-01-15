@@ -29,7 +29,7 @@ namespace MVVM_BoilerPlate.ViewModels
         public string Name
         {
             get { return name; }
-            set { SetField(ref name, value, () => Name); }
+            set { SetField(ref name, value); }
         }
         #endregion
     }
