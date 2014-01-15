@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Windows.Input;
+using System.Runtime.CompilerServices;
 
 namespace MVVM_BoilerPlate.ViewModels
 {
@@ -19,7 +20,7 @@ namespace MVVM_BoilerPlate.ViewModels
             PropertyChangedEventHandler handler = PropertyChanged;
             if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
-        protected bool SetField<T>(ref T field, T value, string propertyName)
+        protected bool SetField<T>(ref T field, T value, [CallerMemberName] string propertyName="")
         {
             if (EqualityComparer<T>.Default.Equals(field, value)) return false;
             field = value;
